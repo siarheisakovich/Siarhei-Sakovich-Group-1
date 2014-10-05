@@ -1,4 +1,4 @@
-package classloading.task1;
+package classloading;
 
 import java.io.File;
 import java.io.IOException;

@@ -22,7 +22,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>classloading.task1.Runner</mainClass>
+              <mainClass>classloading.Runner</mainClass>
               <classpathPrefix>lib/</classpathPrefix>
             </manifest>
           </archive>
