@@ -33,7 +33,7 @@ public class MyClassLoader extends SecureClassLoader {
 		try {
 			clazz = defineClass(jarPath, name);
 		} catch (IOException e) {
-			logger.debug("Error reading class" + name,e);
+			logger.debug("Error reading class" + name, e);
 		}
 		if(clazz == null){
 			throw new ClassNotFoundException();
