@@ -1,0 +1,1 @@
+Run Task*.bat one by one. Runner.java will compile automaticly
