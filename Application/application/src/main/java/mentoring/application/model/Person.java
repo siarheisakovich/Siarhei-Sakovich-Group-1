@@ -16,8 +16,7 @@ public class Person {
 	}
 	
 	public int hashCode() {
-        return new HashCodeBuilder(17, 31). // two randomly chosen prime numbers
-            // if deriving: appendSuper(super.hashCode()).
+        return new HashCodeBuilder(17, 31).
             append(name).
             toHashCode();
     }
@@ -30,7 +29,6 @@ public class Person {
 
         Person rhs = (Person) obj;
         return new EqualsBuilder().
-            // if deriving: appendSuper(super.equals(obj)).
             append(name, rhs.name).
             isEquals();
     }

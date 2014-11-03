@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class Utils {
 
-    public static XStream getXStream(){
+    public static XStream getBankXStream(){
         XStream xstream = new XStream(new DomDriver());
         xstream.alias("person", Person.class);
         xstream.alias("bank", Bank.class);

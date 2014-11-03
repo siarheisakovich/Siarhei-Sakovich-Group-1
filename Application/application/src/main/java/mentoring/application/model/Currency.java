@@ -31,5 +31,12 @@ public class Currency {
             append(name, rhs.name).
             isEquals();
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+    
+    
 	
 }

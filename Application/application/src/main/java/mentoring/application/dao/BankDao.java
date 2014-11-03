@@ -11,7 +11,7 @@ import mentoring.application.model.Bank;
 public class BankDao {
 
     private static final File FILE = new File("./file.xml");
-    private static final XStream XSTREAM = Utils.getXStream();;
+    private static final XStream XSTREAM = Utils.getBankXStream();
 
     public Bank getBank() {
         Bank bank = (Bank) XSTREAM.fromXML(FILE);

@@ -3,6 +3,8 @@ package mentoring.application.model;
 import java.util.List;
 
 public class Account {
+    
+    private String id;
 	
 	private List<Person> persons;
 	
@@ -23,5 +25,13 @@ public class Account {
 	public void setPurses(List<Purse> purses) {
 		this.purses = purses;
 	}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 	
 }

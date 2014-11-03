@@ -31,4 +31,12 @@ public class Purse {
 	public void setAmount(long amount) {
 		this.amount = amount;
 	}
+
+    @Override
+    public String toString() {
+        return "Purse [name=" + name + ", currency=" + currency + ", amount="
+                + amount + "]";
+    }
+	
+	
 }
