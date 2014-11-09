@@ -1,5 +1,6 @@
 package mentoring.application.services;
 
+import java.io.IOException;
 import java.util.List;
 
 import mentoring.application.model.CurrencyOperation;
@@ -8,7 +9,8 @@ public interface CurrencyPriceService {
     
     List<CurrencyOperation> listCurrencyOperations();
     
-    //TODO
-    float getOperation();
+    CurrencyOperation getOperation(String fromCurrency, String toCurrency);
+
+    void updateCurrencyOperations(List<CurrencyOperation> currencyOperations) throws IOException;
 
 }

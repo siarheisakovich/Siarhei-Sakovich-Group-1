@@ -4,9 +4,9 @@ public class Purse {
 
 	private String name;
 	
-	private Currency currency;
+	private String currency;
 	
-	private long amount;
+	private double amount;
 
 	public String getName() {
 		return name;
@@ -16,19 +16,19 @@ public class Purse {
 		this.name = name;
 	}
 
-	public Currency getCurrency() {
+	public String getCurrency() {
 		return currency;
 	}
 
-	public void setCurrency(Currency currency) {
+	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
 
-	public long getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(long amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 

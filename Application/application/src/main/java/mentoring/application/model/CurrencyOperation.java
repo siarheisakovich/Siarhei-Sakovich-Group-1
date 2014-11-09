@@ -2,33 +2,33 @@ package mentoring.application.model;
 
 public class CurrencyOperation {
     
-    private Currency fromCurrency;
+    private String fromCurrency;
     
-    private Currency toCurrency;
+    private String toCurrency;
     
-    private float coefficent;
-
-    public Currency getFromCurrency() {
+    private double coefficent;
+    
+    public String getFromCurrency() {
         return fromCurrency;
     }
-
-    public void setFromCurrency(Currency fromCurrency) {
-        this.fromCurrency = fromCurrency;
-    }
-
-    public Currency getToCurrency() {
+    
+    public String getToCurrency() {
         return toCurrency;
     }
-
-    public void setToCurrency(Currency toCurrency) {
+    
+    public void setFromCurrency(String fromCurrency) {
+        this.fromCurrency = fromCurrency;
+    }
+    
+    public void setToCurrency(String toCurrency) {
         this.toCurrency = toCurrency;
     }
 
-    public float getCoefficent() {
+    public double getCoefficent() {
         return coefficent;
     }
 
-    public void setCoefficent(float coefficent) {
+    public void setCoefficent(double coefficent) {
         this.coefficent = coefficent;
     }
 

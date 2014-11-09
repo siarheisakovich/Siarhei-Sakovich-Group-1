@@ -33,5 +33,11 @@ public class Account {
     public void setId(String id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Account [id=" + id + ", persons=" + persons + ", purses="
+                + purses + "]";
+    }
 	
 }
