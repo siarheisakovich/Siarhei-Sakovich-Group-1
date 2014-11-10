@@ -28,8 +28,8 @@ import mentoring.application.services.impl.PurseServiceImpl;
 public class App {
 
     public static void main(String[] args) throws IOException {
-        BankDao bankDao = new BankDao();
-        CurrencyDao currencyDao = new CurrencyDao();
+        BankDao bankDao = new BankDao("./file.xml");
+        CurrencyDao currencyDao = new CurrencyDao("./currencyOperations.xml");
         if (args != null && args.length > 0 && "initData".equals(args[0])) {
             Bank bank = new Bank();
 

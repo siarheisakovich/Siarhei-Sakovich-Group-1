@@ -11,16 +11,20 @@ import com.thoughtworks.xstream.XStream;
 
 public class CurrencyDao {
 
-    private static final File FILE = new File("./currencyOperations.xml");
     private static final XStream XSTREAM = Utils.getBankXStream();
 
+    private File file;
+    
+    public CurrencyDao(String filePath) {
+        file = new File(filePath);
+    }
     public synchronized List<CurrencyOperation> getCurrencyOperationsList() {
-        List<CurrencyOperation> currencyOperations = (List<CurrencyOperation>) XSTREAM.fromXML(FILE);
+        List<CurrencyOperation> currencyOperations = (List<CurrencyOperation>) XSTREAM.fromXML(file);
         return currencyOperations;
     }
 
     public synchronized void saveCurrencyOperations(List<CurrencyOperation> currencyOperations) throws IOException {
-        FileWriter fileWriter = new FileWriter(FILE);
+        FileWriter fileWriter = new FileWriter(file);
         XSTREAM.toXML(currencyOperations, fileWriter);
     }
 }
