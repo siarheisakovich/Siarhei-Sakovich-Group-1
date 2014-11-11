@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import mentoring.application.dao.BankDao;
 import mentoring.application.exception.ServiceException;
 import mentoring.application.model.Account;
@@ -21,11 +23,16 @@ public class PurseServiceImpl implements PurseService {
     }
     
     @Override
-    public List<Purse> getAllPurses(Account account) {
+    public List<Purse> getAllPurses(String accountId) {
         Bank bank = bankDao.getBank();
         List<Account> accounts = bank.getAccounts();
-        if(accounts != null && accounts.contains(account)){
-            return account.getPurses();
+        if(accounts != null ){
+            for (Account account : accounts) {
+                if(StringUtils.equals(accountId, account.getId())){
+                    return account.getPurses();
+                }
+            }
+            
         }
         return new ArrayList<Purse>();
     }
@@ -36,11 +43,12 @@ public class PurseServiceImpl implements PurseService {
         Account account = accountService.getAccountById(accountId);
         List<Purse> purses = account.getPurses();
         if(purses != null){
-            if(!purses.contains(purse)){
-                purses.add(purse);
-            } else {
-                throw new ServiceException("Purse already assigned to Account id: " + account.getId());
+            for (Purse purseItem : purses) {
+                if(StringUtils.equals(purseItem.getName(), purse.getName())){
+                    throw new ServiceException("Purse already assigned to Account id: " + account.getId());
+                }
             }
+            purses.add(purse);
         } else {
             List<Purse> newPurses = new ArrayList<Purse>();
             newPurses.add(purse);

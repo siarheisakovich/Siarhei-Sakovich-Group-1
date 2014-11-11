@@ -1,5 +1,6 @@
 package mentoring.application.model;
 
+//TODO
 public class ExchangeResult {
 
     String fromPurseName;

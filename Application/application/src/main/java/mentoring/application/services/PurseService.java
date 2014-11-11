@@ -9,7 +9,7 @@ import mentoring.application.model.Purse;
 
 public interface PurseService {
     
-    List<Purse> getAllPurses(Account account);
+    List<Purse> getAllPurses(String accountId);
     
     void addPurse(String accountId, Purse purse) throws IOException, ServiceException;
     

@@ -10,7 +10,6 @@ import mentoring.application.dao.BankDao;
 import mentoring.application.exception.ServiceException;
 import mentoring.application.model.Account;
 import mentoring.application.model.Bank;
-import mentoring.application.model.Purse;
 import mentoring.application.services.AccountService;
 
 public class AccountServiceImpl implements AccountService {
@@ -38,20 +37,6 @@ public class AccountServiceImpl implements AccountService {
         }
         accounts.add(account);
         bankDao.saveBank(bank);
-    }
-
-    @Override
-    public List<Purse> getAccountPurses(String accountId) {
-        Bank bank = bankDao.getBank();
-        List<Account> accounts = bank.getAccounts();
-        if (accounts != null) {
-            for (Account account : accounts) {
-                if (StringUtils.equals(accountId, account.getId())) {
-                    return account.getPurses();
-                }
-            }
-        }
-        return null;
     }
 
     @Override

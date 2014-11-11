@@ -4,13 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import mentoring.application.dao.BankDao;
 import mentoring.application.dao.CurrencyDao;
-import mentoring.application.exception.ServiceException;
-import mentoring.application.model.Account;
-import mentoring.application.model.Bank;
 import mentoring.application.model.CurrencyOperation;
-import mentoring.application.services.impl.AccountServiceImpl;
 import mentoring.application.services.impl.CurrencyPriceServiceImpl;
 
 import org.junit.runner.RunWith;
