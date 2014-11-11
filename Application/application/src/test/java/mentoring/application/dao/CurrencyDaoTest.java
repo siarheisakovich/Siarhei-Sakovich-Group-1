@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import mentoring.application.TestUtils;
-import mentoring.application.model.Bank;
 import mentoring.application.model.CurrencyOperation;
 
 import org.junit.Assert;
