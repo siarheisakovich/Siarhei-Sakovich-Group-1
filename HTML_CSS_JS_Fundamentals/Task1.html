@@ -8,15 +8,28 @@
 	<style>
 		h1, h2, a {
 			color: #CCCDAE;
-			padding: 0;
+			padding: 10px;
 			margin: 0;
+			text-decoration: none;
 		}
-		body {
-			min-height:100%;
-			margin: 0;
-
+		h1 {
+			font-size: 1.66em;
+		}
+		h2 {
+			font-size: 1.26em;
+		}
+		html, body {
+		    height: 100%;
+		    width: 100%;
+		    margin: 0;
+		    display: table;
 		}
 		body > header {
+			height: 100px;
+			text-align: center;
+		}
+
+		body > header h1{
 		   text-align: center;
 		   margin-bottom: 
 		}
@@ -29,6 +42,10 @@
 		   text-align: center;
 		   background-color: #654351;
 		}
+		body > footer {
+		    display: table-row;
+		    height: 0;
+		}
 		body > section article {
 			background-color: #CBC8CC;
 			padding: 5px 5px 5px 5px;
@@ -37,6 +54,12 @@
 			margin-top: 20px;
 			margin-bottom: 20px;
 		}
+		body > section article header h2{
+			padding: 0;
+		}
+		body > section article footer h2{
+			padding: 0;
+		}
 		body > section article header, section article footer{
 			-moz-border-radius: 10px;
 			-webkit-border-radius: 10px;
@@ -44,11 +67,33 @@
 
 		body > section {
 			background-color: #536346;
+			height: 100%;
 		}
 		body > section > nav {
 			float: left;
 			height: 100%;
 			width: 25%;
+			
+		}
+		body > section > nav ul{
+			padding: 20px;
+		}
+		
+		body > section > nav ul li{
+			list-style-type: none;
+			border-bottom: 2px solid #eeeeee;
+			padding: 10px;
+		}
+		body > section > nav h2{
+			text-align: center;
+			font-weight: bold;
+			color: white;
+			padding-top: 25px;
+		}
+		body > section > nav li a{
+			color: #433449;
+			padding: 0;
+			font-weight: bold;
 		}
 		body > section > section {
 			height: 100%;
@@ -56,22 +101,33 @@
 			float: left;
 		}
 		body > nav ul li {
-			underline
+			border-bottom: 2px;
+		}
+		body > nav h2 {
+			text-align: center;
+
 		}
 		.clearfix {
 			clear: both;
 		}
 		figure {
-			background: #5f6a72; /* Цвет фона */
-			padding: 10px; /* Поля вокруг */
+			position: center;
 			display: block; /* Блочный элемент */
-			width: 150px; /* Ширина */
 			float: left; /* Блоки выстраиваются по горизонтали */
-			margin: 0 10px 10px 0; /* Отступы */
+			text-align: center; /* Выравнивание по центру */
+		}
+		figure img{
+			width: 190px;
+			height: 160px;
+			float: left; /* Блоки выстраиваются по горизонтали */
 			text-align: center; /* Выравнивание по центру */
 		}
 		figcaption {
 			color: #fff; /* Цвет текста */
+		}
+		body > section > aside {
+			float: left;
+			width: 25%;
 		}
 		
 	</style>
@@ -82,13 +138,10 @@
 		<h1>Page Header</h1>
 		<h2>I love HTML5!</h2>
 	</header>
-	<aside style="font-style:italic;
-			float:right;width:20%;
-			border:1px solid">
-		<p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-	</aside>
+	
 	<section>
 		<nav>
+			<h2>Navigation Bar</h2>
 			<ul>
 				<li><a href="">Link 1</a></li>
 				<li><a href="">Link 1</a></li>
@@ -115,12 +168,18 @@
 				</footer>
 			</article>
 		</section>
+		<aside>
+			<figure>
+				<p><img src="http://www.html5rocks.com/static/images/mastheads/h5r-shadow.png" alt=""></p>
+				<figcaption>figcaption</figcaption>
+			</figure>
+		</aside>
 		<div class="clearfix">
 	</section>
 	
 
 	<footer>
-		<h1>Page Footer</h1>
+		<h2>Page Footer</h2>
 	</footer>
 
 </body>
