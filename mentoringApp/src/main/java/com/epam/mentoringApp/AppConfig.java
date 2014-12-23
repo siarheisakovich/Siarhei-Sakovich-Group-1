@@ -2,14 +2,17 @@ package com.epam.mentoringApp;
 
 import java.util.Properties;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @ComponentScan("com.epam.mentoringApp.services")
@@ -29,7 +32,7 @@ public class AppConfig {
        return em;
     }
     
-    @Bean
+    @Bean(destroyMethod = "close")
     public DataSource dataSource(){
         org.apache.tomcat.jdbc.pool.DataSource dataSource = new org.apache.tomcat.jdbc.pool.DataSource();
         //TODO configure
@@ -42,6 +45,12 @@ public class AppConfig {
         dataSource.setMaxIdle(5);
         dataSource.setMinIdle(2);
         return dataSource;
+    }
+    
+    @Bean
+    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
+        JpaTransactionManager jpaTransactionManager = new JpaTransactionManager(entityManagerFactory);
+        return jpaTransactionManager;
     }
     
     Properties additionalProperties() {
