@@ -1,5 +1,7 @@
 package com.epam.mentoringApp.dao;
 
-public interface AccountDao {
+import com.epam.mentoringApp.model.Account;
+
+public interface AccountDao extends BaseDao<Account, Long> {
 
 }

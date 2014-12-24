@@ -1,11 +1,12 @@
 package com.epam.mentoringApp.model;
 
-import java.util.List;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -13,15 +14,26 @@ import javax.persistence.SequenceGenerator;
 public class Account {
 
     private Long id;
-    
-    private List<Purse> purse;
-    
-    
-    @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ACC_SEQ")
-    public Long getId() { return id; }
-    
-    
 
-    
+    private Currency currency;
+
+    private Long amount;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_SEQ")
+    public Long getId() {
+        return id;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "currency_id", nullable = false)
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    @Column(nullable = false)
+    public Long getAmount() {
+        return amount;
+    }
+
 }
