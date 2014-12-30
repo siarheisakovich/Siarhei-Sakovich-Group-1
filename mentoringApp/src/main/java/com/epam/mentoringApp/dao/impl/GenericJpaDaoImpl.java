@@ -1,9 +1,16 @@
 package com.epam.mentoringApp.dao.impl;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
@@ -42,7 +49,23 @@ public abstract class GenericJpaDaoImpl<T, PK extends Serializable> implements
         t = this.entityManager.merge(t);
         this.entityManager.remove(t);
     }
-
+    
+    public List<T> search(Map<String, Object> criteriaMap) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(entityClass);
+        Root<T> p = criteriaQuery.from(entityClass);
+        Predicate[] predicate = new Predicate[criteriaMap.size()];
+        int index = 0;
+        for (String property : criteriaMap.keySet()) {
+            Object value = criteriaMap.get(property);
+            predicate[index] = criteriaBuilder.equal(p.get(property), value);
+            index++;
+        }
+        criteriaQuery.where(predicate);
+        TypedQuery<T> query = entityManager.createQuery(criteriaQuery);
+        return query.getResultList();
+    }
+    
     protected EntityManager getEntityManager() {
         return entityManager;
     }
@@ -51,5 +74,7 @@ public abstract class GenericJpaDaoImpl<T, PK extends Serializable> implements
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+    
+    
 
 }
