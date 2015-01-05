@@ -33,7 +33,7 @@ public class UserController {
     
     @RequestMapping(method = RequestMethod.POST)
     public String addPerson(@ModelAttribute("user") User user){         
-        if (user.getId() == 0) {
+        if (user.getId() == null) {
             // new person, add it
             this.userService.create(user);
         } else {

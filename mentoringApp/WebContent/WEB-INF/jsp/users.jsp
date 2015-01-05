@@ -15,7 +15,7 @@
     <h1>
         Add a User
     </h1>
-    <form:form action="/users" commandName="user">
+    <form:form commandName="user">
     <table>
         <tr>
             <td>
@@ -24,7 +24,6 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="id" readonly="true" size="8"  disabled="true" />
                 <form:hidden path="id" />
             </td> 
         </tr>

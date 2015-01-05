@@ -10,10 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.TableGenerator;
 
 @Entity
-@SequenceGenerator(allocationSize = 100, name = "USER_SEQ")
 public class User {
 
     private Long id;
@@ -24,8 +23,15 @@ public class User {
 
     private List<Account> accounts;
 
+    @TableGenerator(
+            name="userGen",
+            table="USER_ID_GEN",
+            pkColumnName="GEN_KEY",
+            valueColumnName="GEN_VALUE",
+            pkColumnValue="USER_ID",
+            allocationSize=1)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="userGen")
     public Long getId() {
         return id;
     }
@@ -44,5 +50,21 @@ public class User {
     @JoinTable(name = "user_account", joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "account_id", referencedColumnName = "id", unique = true) })
     public List<Account> getAccounts() {
         return accounts;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+    
+    public void setLogin(String login) {
+        this.login = login;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

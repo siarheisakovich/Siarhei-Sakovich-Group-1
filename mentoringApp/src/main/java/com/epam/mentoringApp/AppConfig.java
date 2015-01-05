@@ -13,9 +13,11 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan("com.epam.mentoringApp.services")
+@ComponentScan({"com.epam.mentoringApp.services", "com.epam.mentoringApp.dao"})
+@EnableTransactionManagement
 public class AppConfig {
 
     
@@ -36,10 +38,10 @@ public class AppConfig {
     public DataSource dataSource(){
         org.apache.tomcat.jdbc.pool.DataSource dataSource = new org.apache.tomcat.jdbc.pool.DataSource();
         //TODO configure
-        dataSource.setDriverClassName("org.hsqldb.jdbc.JDBCDriver");
-        dataSource.setUrl("jdbc:hsqldb:mem:bank");
-        dataSource.setUsername( "sa" );
-        dataSource.setPassword( "" );
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/andreidb");
+        dataSource.setUsername( "root" );
+        dataSource.setPassword( "root" );
         dataSource.setInitialSize(5);
         dataSource.setMaxActive(10);
         dataSource.setMaxIdle(5);
@@ -56,7 +58,7 @@ public class AppConfig {
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         properties.setProperty("hibernate.show_sql", "true");
         properties.setProperty("hibernate.format_sql", "true");
         return properties;

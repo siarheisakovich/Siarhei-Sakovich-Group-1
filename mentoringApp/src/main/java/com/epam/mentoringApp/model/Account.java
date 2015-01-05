@@ -7,10 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.TableGenerator;
 
 @Entity
-@SequenceGenerator(allocationSize = 100, name = "ACC_SEQ")
 public class Account {
 
     private Long id;
@@ -19,8 +18,15 @@ public class Account {
 
     private Long amount;
 
+    @TableGenerator(
+            name="accGen",
+            table="ACC_ID_GEN",
+            pkColumnName="GEN_KEY",
+            valueColumnName="GEN_VALUE",
+            pkColumnValue="ACC_ID",
+            allocationSize=1)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_SEQ")
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="accGen")
     public Long getId() {
         return id;
     }
@@ -35,5 +41,16 @@ public class Account {
     public Long getAmount() {
         return amount;
     }
-
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public void setAmount(Long amount) {
+        this.amount = amount;
+    }
+    
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
 }

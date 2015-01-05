@@ -1,6 +1,7 @@
 package com.epam.mentoringApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
 @EnableWebMvcSecurity
+@ComponentScan("com.epam.mentoringApp.security")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Autowired
@@ -19,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
         .authorizeRequests()
-            .antMatchers("/**").hasRole("ROLE_USER")
+            .antMatchers("/**").hasRole("USER")
             .and()
         .formLogin();
     }

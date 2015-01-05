@@ -3,12 +3,14 @@ package com.epam.mentoringApp.model;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class CurrencyOperation {
 
     private Long id;
@@ -40,6 +42,22 @@ public class CurrencyOperation {
     @Column(nullable = false, precision = 10, scale = 3)
     public BigDecimal getCoefficent() {
         return coefficent;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public void setCoefficent(BigDecimal coefficent) {
+        this.coefficent = coefficent;
+    }
+    
+    public void setFromCurrency(Currency fromCurrency) {
+        this.fromCurrency = fromCurrency;
+    }
+    
+    public void setToCurrency(Currency toCurrency) {
+        this.toCurrency = toCurrency;
     }
 
 }

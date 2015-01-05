@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.epam.mentoringApp.dao.UserDao;
 import com.epam.mentoringApp.model.User;
 
+@Repository
 public class UserDaoImpl extends GenericJpaDaoImpl<User, Long> implements UserDao {
 
     public UserDaoImpl() {
