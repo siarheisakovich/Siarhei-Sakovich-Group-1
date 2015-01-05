@@ -50,6 +50,17 @@ public abstract class GenericJpaDaoImpl<T, PK extends Serializable> implements
         this.entityManager.remove(t);
     }
     
+    @Override
+    public List<T> list() {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> cq = cb.createQuery(entityClass);
+        Root<T> rootEntry = cq.from(entityClass);
+        CriteriaQuery<T> all = cq.select(rootEntry);
+        TypedQuery<T> allQuery = entityManager.createQuery(all);
+        return allQuery.getResultList();
+    }
+    
+    @Override
     public List<T> search(Map<String, Object> criteriaMap) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(entityClass);
@@ -75,6 +86,8 @@ public abstract class GenericJpaDaoImpl<T, PK extends Serializable> implements
         this.entityManager = entityManager;
     }
     
-    
+    public Class<T> getEntityClass() {
+        return entityClass;
+    }
 
 }

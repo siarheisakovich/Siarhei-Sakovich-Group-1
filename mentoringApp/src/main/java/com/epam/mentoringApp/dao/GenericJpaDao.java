@@ -13,5 +13,7 @@ public interface GenericJpaDao<T, PK extends Serializable> {
 
     void delete(T t);
     
+    List<T> list();
+    
     List<T> search(Map<String, Object> criteriaMap);
 }

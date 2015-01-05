@@ -15,16 +15,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService; 
     
-    
-    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
         .authorizeRequests()
-            .antMatchers("/**").hasRole("USER")
+            .antMatchers("/**").hasRole("ROLE_USER")
             .and()
         .formLogin();
-
     }
     
     @Override
