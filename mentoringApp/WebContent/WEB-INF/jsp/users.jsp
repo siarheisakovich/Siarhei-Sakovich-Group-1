@@ -56,7 +56,7 @@
     </table>  
     </form:form>
     <h3>Users List</h3>
-    <c:if test="${not empty lists}">
+    <c:if test="${not empty users}">
         <table class="tg">
         <tr>
             <th width="80">Person ID</th>
