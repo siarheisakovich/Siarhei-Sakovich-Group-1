@@ -60,6 +60,7 @@ public abstract class GenericJpaDaoImpl<T, PK extends Serializable> implements
     public List<T> list() {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(entityClass);
+        cq.from(entityClass);
         TypedQuery<T> q = entityManager.createQuery(cq);
         return q.getResultList();
     }
