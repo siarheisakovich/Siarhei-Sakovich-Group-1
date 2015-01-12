@@ -12,7 +12,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.epam.mentoringApp.controllers")
-@Import(SecurityConfig.class)
 public class DispatcherConfig extends WebMvcConfigurerAdapter {    
     
     @Bean
