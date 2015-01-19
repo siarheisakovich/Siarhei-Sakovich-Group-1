@@ -22,9 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .authorizeRequests()
             .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')")
-            .antMatchers("/*").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_DBA')")
+            .antMatchers("/*").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
             .and()
-        .formLogin();
+        .formLogin()
+            .and()
+        .logout()
+            .invalidateHttpSession(true)
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/");
     }
     
     @Override

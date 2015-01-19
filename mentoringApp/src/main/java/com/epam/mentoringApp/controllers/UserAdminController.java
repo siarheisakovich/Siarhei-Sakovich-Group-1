@@ -14,14 +14,13 @@ import com.epam.mentoringApp.model.User;
 import com.epam.mentoringApp.services.UserService;
 
 @Controller
-@RequestMapping("/users")
-public class UserController {
-    private static final Logger logger = Logger.getLogger(UserController.class);
+public class UserAdminController {
+    private static final Logger logger = Logger.getLogger(UserAdminController.class);
 
     @Autowired
     private UserService userService;
     
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="/admin/users", method = RequestMethod.GET)
     public String list(Model model) {
         logger.debug("printHello");
         List<User> list = userService.list();
@@ -31,7 +30,7 @@ public class UserController {
         return "users";
     }
     
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="/admin/users", method = RequestMethod.POST)
     public String addPerson(@ModelAttribute("user") User user){         
         if (user.getId() == null) {
             // new person, add it
@@ -40,7 +39,7 @@ public class UserController {
             // existing person, call update
             this.userService.update(user);
         }
-        return "redirect:/users";
+        return "redirect:/admin/users";
     }
     
     

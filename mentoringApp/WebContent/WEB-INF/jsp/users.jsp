@@ -15,7 +15,8 @@
     <h1>
         Add a User
     </h1>
-    <form:form commandName="user">
+    <c:url var="add_user_action" value='/admin/users'/>
+    <form:form commandName="user" action="${add_user_action}" method="POST">
     <table>
         <tr>
             <td>
@@ -60,8 +61,8 @@
         <table class="tg">
         <tr>
             <th width="80">Person ID</th>
-            <th width="120">Person Name</th>
-            <th width="120">Person Country</th>
+            <th width="120">Person Login</th>
+            <th width="120">Person Password</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>

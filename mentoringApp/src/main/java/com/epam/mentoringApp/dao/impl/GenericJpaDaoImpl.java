@@ -57,7 +57,7 @@ public abstract class GenericJpaDaoImpl<T, PK extends Serializable> implements
     }
     
     @Override
-    @Transactional(readOnly = true, isolation=Isolation.READ_UNCOMMITTED)
+    @Transactional(readOnly = true)
     public List<T> list() {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(entityClass);
