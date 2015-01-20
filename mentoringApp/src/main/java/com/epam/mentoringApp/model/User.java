@@ -12,6 +12,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.TableGenerator;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 @Entity
 public class User {
 
@@ -66,5 +69,25 @@ public class User {
     
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 31). 
+            append(id).
+            toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+       if (!(obj instanceof User))
+            return false;
+        if (obj == this)
+            return true;
+
+        User rhs = (User) obj;
+        return new EqualsBuilder().
+            append(id, rhs.id).
+            isEquals();
     }
 }

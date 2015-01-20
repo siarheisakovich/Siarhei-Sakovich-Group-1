@@ -46,7 +46,7 @@
                 <configuration>
                     <path>/${project.build.finalName}</path>
                     <update>true</update>
-                    <url>http://localhost:8081/manager/text</url>
+                    <url>http://localhost:8080/manager/text</url>
                     <username>admin</username>
                     <password>admin</password>
                 </configuration>
@@ -102,6 +102,12 @@
             <version>8.0.15</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+        </dependency>
+        
 
         <dependency>
             <groupId>javax.servlet</groupId>

@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-public class User extends org.springframework.security.core.userdetails.User {
+public class UserPrinical extends org.springframework.security.core.userdetails.User {
     
     private static final long serialVersionUID = 1L;
     private Long id;
@@ -19,7 +19,7 @@ public class User extends org.springframework.security.core.userdetails.User {
         predefinedAuthorities.add( new SimpleGrantedAuthority("ROLE_USER"));
     }
     
-    public User(com.epam.mentoringApp.model.User user) {
+    public UserPrinical(com.epam.mentoringApp.model.User user) {
         super(user.getLogin(), user.getPassword(), true, true, true, true, predefinedAuthorities);
         this.id = user.getId();
     }
@@ -33,8 +33,8 @@ public class User extends org.springframework.security.core.userdetails.User {
         return id;
     }
     
-    public static User get() {
-        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    public static UserPrinical get() {
+        return (UserPrinical) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 }
 

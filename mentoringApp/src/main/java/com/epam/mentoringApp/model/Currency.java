@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 @Entity
 public class Currency {
 
@@ -41,5 +44,25 @@ public class Currency {
     
     public void setTitle(String title) {
         this.title = title;
+    }
+    
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 31). 
+            append(id).
+            toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+       if (!(obj instanceof Currency))
+            return false;
+        if (obj == this)
+            return true;
+
+        Currency rhs = (Currency) obj;
+        return new EqualsBuilder().
+            append(id, rhs.id).
+            isEquals();
     }
 }

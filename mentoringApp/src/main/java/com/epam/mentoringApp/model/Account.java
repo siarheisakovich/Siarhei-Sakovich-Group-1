@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.TableGenerator;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 @Entity
 public class Account {
 
@@ -52,5 +55,25 @@ public class Account {
     
     public void setCurrency(Currency currency) {
         this.currency = currency;
+    }
+    
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 31). 
+            append(id).
+            toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+       if (!(obj instanceof Account))
+            return false;
+        if (obj == this)
+            return true;
+
+        Account rhs = (Account) obj;
+        return new EqualsBuilder().
+            append(id, rhs.id).
+            isEquals();
     }
 }

@@ -14,53 +14,64 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 @Entity
-public class CurrencyOperation {
+public class ExchangeOperation {
 
     private Long id;
-
-    private Currency fromCurrency;
-
-    private Currency toCurrency;
-
+    
     private BigDecimal coefficent;
-
+    
+    private Account fromAccount;
+    
+    private Account toAccount;
+    
+    private Long amount;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "from_currency_id", nullable = false)
-    public Currency getFromCurrency() {
-        return fromCurrency;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "to_currency_id", nullable = false)
-    public Currency getToCurrency() {
-        return toCurrency;
-    }
-
+    
     @Column(nullable = false, precision = 10, scale = 3)
     public BigDecimal getCoefficent() {
         return coefficent;
     }
     
-    public void setId(Long id) {
-        this.id = id;
+    @ManyToOne
+    @JoinColumn(name = "from_account_id", nullable = false)
+    public Account getFromAccount() {
+        return fromAccount;
+    }
+    
+    @ManyToOne
+    @JoinColumn(name = "to_account_id", nullable = false)
+    public Account getToAccount() {
+        return toAccount;
+    }
+    
+    @Column(nullable = false)
+    public Long getAmount() {
+        return amount;
+    }
+    
+    public void setAmount(Long amount) {
+        this.amount = amount;
     }
     
     public void setCoefficent(BigDecimal coefficent) {
         this.coefficent = coefficent;
     }
     
-    public void setFromCurrency(Currency fromCurrency) {
-        this.fromCurrency = fromCurrency;
+    public void setFromAccount(Account fromAccount) {
+        this.fromAccount = fromAccount;
     }
     
-    public void setToCurrency(Currency toCurrency) {
-        this.toCurrency = toCurrency;
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public void setToAccount(Account toAccount) {
+        this.toAccount = toAccount;
     }
     
     @Override
@@ -72,15 +83,15 @@ public class CurrencyOperation {
 
     @Override
     public boolean equals(Object obj) {
-       if (!(obj instanceof CurrencyOperation))
+       if (!(obj instanceof ExchangeOperation))
             return false;
         if (obj == this)
             return true;
 
-        CurrencyOperation rhs = (CurrencyOperation) obj;
+        ExchangeOperation rhs = (ExchangeOperation) obj;
         return new EqualsBuilder().
             append(id, rhs.id).
             isEquals();
     }
-
 }
+

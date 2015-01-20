@@ -1,5 +1,7 @@
 package com.epam.mentoringApp.services;
 
-public interface AccountService {
+import com.epam.mentoringApp.model.Account;
+
+public interface AccountService extends IBasicService<Account, Long>{
 
 }

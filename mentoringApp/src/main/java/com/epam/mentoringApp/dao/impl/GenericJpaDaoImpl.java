@@ -13,7 +13,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.epam.mentoringApp.dao.GenericJpaDao;
@@ -31,33 +30,28 @@ public abstract class GenericJpaDaoImpl<T, PK extends Serializable> implements
     }
 
     @Override
-    @Transactional(readOnly = false)
     public T create(T t) {
         this.entityManager.persist(t);
         return t;
     }
 
     @Override
-    @Transactional(readOnly = true)
     public T read(PK id) {
         return this.entityManager.find(entityClass, id);
     }
 
     @Override
-    @Transactional(readOnly = false)
     public T update(T t) {
         return this.entityManager.merge(t);
     }
 
     @Override
-    @Transactional(readOnly = false)
     public void delete(T t) {
         t = this.entityManager.merge(t);
         this.entityManager.remove(t);
     }
     
     @Override
-    @Transactional(readOnly = true)
     public List<T> list() {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(entityClass);
@@ -66,7 +60,6 @@ public abstract class GenericJpaDaoImpl<T, PK extends Serializable> implements
     }
     
     @Override
-    @Transactional(readOnly = true)
     public List<T> search(Map<String, Object> criteriaMap) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(entityClass);

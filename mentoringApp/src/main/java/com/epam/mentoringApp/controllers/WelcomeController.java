@@ -13,7 +13,6 @@ public class WelcomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String printHello(ModelMap model) {
-        model.addAttribute("message", "Hello Spring MVC Framework!");
         return "welcome";
     }
 

@@ -23,7 +23,7 @@ public class UserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException("No user with username '"
                     + username + "' found!");
         }
-        com.epam.mentoringApp.security.User securityUser = new com.epam.mentoringApp.security.User(user);
+        UserPrinical securityUser = new UserPrinical(user);
         return securityUser;
     }
 

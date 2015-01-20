@@ -6,19 +6,53 @@
 
     <!-- Default Main Template -->
     <definition name=".mainTemplate" template="/WEB-INF/templates/main.jsp">
-        <put-attribute name="title" value="Simple Tiles 2 Example" type="string" />
+        <put-attribute name="title" value="Mentoring App" type="string" />
         <put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
         <put-attribute name="footer" value="/WEB-INF/templates/footer.jsp" type="string" />
-        <put-attribute name="menu" value="/WEB-INF/templates/menu.jsp" type="string" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
         <put-attribute name="content" value="/WEB-INF/templates/blank.jsp" type="string" />
     </definition>
  
     <definition name="users" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - Users Administration" type="string" />
         <put-attribute name="content" value="/WEB-INF/jsp/users.jsp" />
     </definition>
     
-    <definition name="welcome" extends=".mainTemplate">
-        <put-attribute name="content" value="/WEB-INF/jsp/hello.jsp" />
+    <definition name="userDetails" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - User Profile" type="string" />
+        <put-attribute name="content" value="/WEB-INF/jsp/editProfile.jsp" />
     </definition>
+    
+    <definition name="currencies" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - Currency Administration" type="string" />
+        <put-attribute name="content" value="/WEB-INF/jsp/currencies.jsp" />
+    </definition>
+    
+    <definition name="currencyDetails" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - Currency Operations Details" type="string" />
+        <put-attribute name="content" value="/WEB-INF/jsp/currencyDetails.jsp" />
+    </definition>
+    
+    <definition name="currencyOperations" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - Currency Operations Administration" type="string" />
+        <put-attribute name="content" value="/WEB-INF/jsp/currencyOperations.jsp" />
+    </definition>
+    
+    <definition name="currencyOperationDetails" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - Currency Operations Details" type="string" />
+        <put-attribute name="content" value="/WEB-INF/jsp/currencyOperationsDetails.jsp" />
+    </definition>
+    
+    <definition name="welcome" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - Welcome Page" type="string" />
+        <put-attribute name="content" value="Welcome to our exchange service" type="string"/>
+    </definition>
+    
+    <definition name="accounts" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - Accounts Page" type="string" />
+        <put-attribute name="content" value="/WEB-INF/jsp/accounts.jsp" />
+    </definition>
+    
+    
     
 </tiles-definitions>

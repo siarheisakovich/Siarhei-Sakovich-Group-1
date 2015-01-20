@@ -7,21 +7,24 @@
 <head>
 <title><tiles:getAsString name="title" /></title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/main.css"/>" />
+<style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+</style>
 </head>
 <body>
-    <div id="header">
-        <div id="headerTitle">
-            <tiles:insertAttribute name="header" />
-        </div>
-    </div>
-    <div id="menu">
+    <header class="header">
+        <tiles:insertAttribute name="header" />
+    </header>
+    <section class="menu">
         <tiles:insertAttribute name="menu" />
-    </div>
-    <div id="content">
+    </section>
+    <main class="content">
         <tiles:insertAttribute name="content" />
-    </div>
-    <div id="footer">
+    </main>
+    <footer class="footer">
         <tiles:insertAttribute name="footer" />
-    </div>
+    </footer>
 </body>
 </html>
