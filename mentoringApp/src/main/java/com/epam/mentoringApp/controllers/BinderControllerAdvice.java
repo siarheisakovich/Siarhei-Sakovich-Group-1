@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.InitBinder;
 
 import com.epam.mentoringApp.dao.CurrencyDao;
+import com.epam.mentoringApp.dto.CurrencyDto;
 import com.epam.mentoringApp.model.Currency;
 import com.epam.mentoringApp.services.CurrencyService;
 
@@ -20,7 +21,7 @@ public class BinderControllerAdvice {
     
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        binder.registerCustomEditor(Currency.class, this.currencyEditor);
+        binder.registerCustomEditor(CurrencyDto.class, this.currencyEditor);
     }
     
     @Component

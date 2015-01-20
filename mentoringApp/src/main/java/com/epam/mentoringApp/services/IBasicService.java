@@ -3,17 +3,15 @@ package com.epam.mentoringApp.services;
 import java.io.Serializable;
 import java.util.List;
 
-public interface IBasicService<T, PK extends Serializable> {
+public interface IBasicService<T, DTO, PK extends Serializable> {
+    
+    DTO create(DTO value);
+    
+    void update(DTO value);
 
-    Class<? extends T> getEntityClass();
+    void delete(DTO value);
     
-    T create(T value);
+    DTO read(PK key);
     
-    void update(T value);
-
-    void delete(T value);
-    
-    T read(PK key);
-    
-    List<T> list();
+    List<DTO> list();
 }

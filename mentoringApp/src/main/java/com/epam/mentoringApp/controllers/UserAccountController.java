@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.epam.mentoringApp.dto.AccountDto;
+import com.epam.mentoringApp.dto.CurrencyDto;
+import com.epam.mentoringApp.dto.UserDto;
 import com.epam.mentoringApp.model.Account;
 import com.epam.mentoringApp.model.Currency;
 import com.epam.mentoringApp.model.User;
@@ -31,19 +34,19 @@ public class UserAccountController {
     @RequestMapping(value="/accounts", method = RequestMethod.GET)
     public String list(Model model) {
         UserPrinical userPrinical = UserPrinical.get();
-        List<Currency> currencies = currencyService.list();
+        List<CurrencyDto> currencies = currencyService.list();
         model.addAttribute("currencies", currencies);
         model.addAttribute("list", userService.getUserAccounts(userPrinical.getId()));
-        model.addAttribute("account", new Account());
+        model.addAttribute("account", new AccountDto());
         return "accounts";
     }
     
     @RequestMapping(value="/accounts", method = RequestMethod.POST)
-    public String addOrUpdate(@ModelAttribute("account") Account account){         
+    public String addOrUpdate(@ModelAttribute("account") AccountDto account){         
         UserPrinical userPrinical = UserPrinical.get();
         Long id = userPrinical.getId();
-        User user = userService.read(id);
-        List<Account> accounts = userService.getUserAccounts(userPrinical.getId());
+        UserDto user = userService.read(id);
+        List<AccountDto> accounts = userService.getUserAccounts(userPrinical.getId());
         accounts.add(account);
         user.setAccounts(accounts);
         userService.update(user);

@@ -22,7 +22,9 @@ public class CurrencyOperation {
 
     private Currency toCurrency;
 
-    private BigDecimal coefficent;
+    private BigDecimal fromCoefficent;
+    
+    private BigDecimal toCoefficent;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,20 +43,26 @@ public class CurrencyOperation {
     public Currency getToCurrency() {
         return toCurrency;
     }
-
+    
     @Column(nullable = false, precision = 10, scale = 3)
-    public BigDecimal getCoefficent() {
-        return coefficent;
+    public BigDecimal getFromCoefficent() {
+        return fromCoefficent;
+    }
+    @Column(nullable = false, precision = 10, scale = 3)
+    public BigDecimal getToCoefficent() {
+        return toCoefficent;
     }
     
+    public void setFromCoefficent(BigDecimal fromCoefficent) {
+        this.fromCoefficent = fromCoefficent;
+    }
+    
+    public void setToCoefficent(BigDecimal toCoefficent) {
+        this.toCoefficent = toCoefficent;
+    }
     public void setId(Long id) {
         this.id = id;
     }
-    
-    public void setCoefficent(BigDecimal coefficent) {
-        this.coefficent = coefficent;
-    }
-    
     public void setFromCurrency(Currency fromCurrency) {
         this.fromCurrency = fromCurrency;
     }

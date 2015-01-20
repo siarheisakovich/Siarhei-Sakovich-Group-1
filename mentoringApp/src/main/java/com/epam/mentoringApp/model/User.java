@@ -2,6 +2,7 @@ package com.epam.mentoringApp.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.Entity;
@@ -49,7 +50,7 @@ public class User {
         return password;
     }
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_account", joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "account_id", referencedColumnName = "id", unique = true) })
     public List<Account> getAccounts() {
         return accounts;

@@ -39,14 +39,25 @@
     </tr>
     <tr>
         <td>
-            <form:label path="coefficent">
-                <spring:message text="Coefficent"/>
+            <form:label path="fromCoefficent">
+                <spring:message text="From Coefficent"/>
             </form:label>
         </td>
         <td>
-            <form:input path="coefficent" />
+            <form:input path="fromCoefficent" />
         </td>
-        <form:errors element="td" path="coefficent" cssClass="error" />
+        <form:errors element="td" path="fromCoefficent" cssClass="error" />
+    </tr>
+    <tr>
+        <td>
+            <form:label path="toCoefficent">
+                <spring:message text="To Coefficent"/>
+            </form:label>
+        </td>
+        <td>
+            <form:input path="toCoefficent" />
+        </td>
+        <form:errors element="td" path="toCoefficent" cssClass="error" />
     </tr>
     <tr>
         <td colspan="2">
@@ -63,7 +74,8 @@
         <th width="80">Currency ID</th>
         <th width="120">From Currency</th>
         <th width="120">To Currency</th>
-        <th width="120">Coefficent</th>
+        <th width="120">From Coefficent</th>
+        <th width="120">To Coefficent</th>
         <th width="60">Edit</th>
     </tr>
     <c:forEach var="item" items="${list}">
@@ -71,7 +83,8 @@
             <td>${item.id}</td>
             <td>${item.fromCurrency.title}</td>
             <td>${item.toCurrency.title}</td>
-            <td>${item.coefficent}</td>
+            <td>${item.fromCoefficent}</td>
+            <td>${item.toCoefficent}</td>
             <td><a href="<c:url value='/admin/currencyOperations/${item.id}' />" >Edit</a></td>
         </tr>
     </c:forEach>

@@ -49,14 +49,25 @@
     </tr>
     <tr>
         <td>
-            <form:label path="coefficent">
-                <spring:message text="Coefficent"/>
+            <form:label path="fromCoefficent">
+                <spring:message text="From Coefficent"/>
             </form:label>
         </td>
         <td>
-            <form:input path="coefficent" />
+            <form:input path="fromCoefficent" />
         </td>
-        <form:errors element="td" path="coefficent" cssClass="error" />
+        <form:errors element="td" path="fromCoefficent" cssClass="error" />
+    </tr>
+    <tr>
+        <td>
+            <form:label path="toCoefficent">
+                <spring:message text="To Coefficent"/>
+            </form:label>
+        </td>
+        <td>
+            <form:input path="toCoefficent" />
+        </td>
+        <form:errors element="td" path="toCoefficent" cssClass="error" />
     </tr>
     <tr>
         <td colspan="2">

@@ -54,7 +54,7 @@
         <tr>
             <td>${item.id}</td>
             <td>${item.currency.title}</td>
-            <td>${item.amount.title}</td>
+            <td>${item.amount}</td>
         </tr>
     </c:forEach>
     </table>
