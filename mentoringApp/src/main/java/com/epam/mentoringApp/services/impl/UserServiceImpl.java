@@ -7,13 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.epam.mentoringApp.dao.BaseDao;
 import com.epam.mentoringApp.dao.UserDao;
 import com.epam.mentoringApp.dto.AccountDto;
-import com.epam.mentoringApp.dto.CurrencyDto;
 import com.epam.mentoringApp.dto.UserDto;
 import com.epam.mentoringApp.model.Account;
-import com.epam.mentoringApp.model.Currency;
 import com.epam.mentoringApp.model.User;
 import com.epam.mentoringApp.services.UserService;
 

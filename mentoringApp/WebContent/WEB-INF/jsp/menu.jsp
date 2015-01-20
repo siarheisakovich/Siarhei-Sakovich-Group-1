@@ -3,8 +3,10 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <nav>
-    <a href="<c:url value='/main'/>">Main</a> 
-    <a href="<c:url value='/accounts'/>">Accounts</a> 
-    <a href="<c:url value='/exchange'/>">Exchange</a>
-    <a href="<c:url value='/profile'/>">Profile</a>
+    <a href="<c:url value='/'/>">User Main</a> 
+    <a href="<c:url value='/accounts'/>">User Accounts</a> 
+    <a href="<c:url value='/exchange'/>">User Exchange</a>
+    <a href="<c:url value='/admin/currencyOperations'/>">Admin Currency Operations</a>
+    <a href="<c:url value='/admin/currencies'/>">Admin Currencies</a>
+    <a href="<c:url value='/admin/currencies'/>">Admin Users</a>
 </nav>

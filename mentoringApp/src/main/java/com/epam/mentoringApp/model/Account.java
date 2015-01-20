@@ -1,5 +1,7 @@
 package com.epam.mentoringApp.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,7 @@ public class Account {
 
     private Currency currency;
 
-    private Long amount;
+    private BigDecimal amount;
 
     @TableGenerator(
             name="accGen",
@@ -41,7 +43,7 @@ public class Account {
     }
 
     @Column(nullable = false)
-    public Long getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
     
@@ -49,7 +51,7 @@ public class Account {
         this.id = id;
     }
     
-    public void setAmount(Long amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
     

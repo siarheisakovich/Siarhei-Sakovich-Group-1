@@ -1,5 +1,7 @@
 package com.epam.mentoringApp.dto;
 
+import java.math.BigDecimal;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -12,7 +14,7 @@ public class AccountDto {
 
     private CurrencyDto currency;
 
-    private Long amount;
+    private BigDecimal amount;
     
     public Long getId() {
         return id;
@@ -22,7 +24,7 @@ public class AccountDto {
         return currency;
     }
     
-    public Long getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
     
@@ -30,7 +32,7 @@ public class AccountDto {
         this.id = id;
     }
     
-    public void setAmount(Long amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
     

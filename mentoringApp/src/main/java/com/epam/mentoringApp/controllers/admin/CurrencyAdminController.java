@@ -2,7 +2,6 @@ package com.epam.mentoringApp.controllers.admin;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +15,6 @@ import com.epam.mentoringApp.services.CurrencyService;
 
 @Controller
 public class CurrencyAdminController {
-    private static final Logger logger = Logger.getLogger(CurrencyAdminController.class);
 
     @Autowired
     private CurrencyService service;

@@ -18,13 +18,17 @@ public class ExchangeOperation {
 
     private Long id;
     
-    private BigDecimal coefficent;
+    private BigDecimal fromCoefficent;
+    
+    private BigDecimal toCoefficent;
     
     private Account fromAccount;
     
     private Account toAccount;
     
-    private Long amount;
+    private BigDecimal amount;
+    
+    private User user;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,8 +37,13 @@ public class ExchangeOperation {
     }
     
     @Column(nullable = false, precision = 10, scale = 3)
-    public BigDecimal getCoefficent() {
-        return coefficent;
+    public BigDecimal getFromCoefficent() {
+        return fromCoefficent;
+    }
+    
+    @Column(nullable = false, precision = 10, scale = 3)
+    public BigDecimal getToCoefficent() {
+        return toCoefficent;
     }
     
     @ManyToOne
@@ -44,22 +53,36 @@ public class ExchangeOperation {
     }
     
     @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    public User getUser() {
+        return user;
+    }
+    
+    @ManyToOne
     @JoinColumn(name = "to_account_id", nullable = false)
     public Account getToAccount() {
         return toAccount;
     }
     
-    @Column(nullable = false)
-    public Long getAmount() {
+    @Column(nullable = false, precision = 10, scale = 3)
+    public BigDecimal getAmount() {
         return amount;
     }
     
-    public void setAmount(Long amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
     
-    public void setCoefficent(BigDecimal coefficent) {
-        this.coefficent = coefficent;
+    public void setFromCoefficent(BigDecimal fromCoefficent) {
+        this.fromCoefficent = fromCoefficent;
+    }
+    
+    public void setToCoefficent(BigDecimal toCoefficent) {
+        this.toCoefficent = toCoefficent;
+    }
+    
+    public void setUser(User user) {
+        this.user = user;
     }
     
     public void setFromAccount(Account fromAccount) {
