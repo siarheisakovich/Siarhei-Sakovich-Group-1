@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import com.epam.mentoringApp.security.MyAppAuthenticationSuccessHandler;
+
 @Configuration
 @EnableWebMvcSecurity
 @ComponentScan("com.epam.mentoringApp.security")
@@ -25,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/*").access("hasRole('ROLE_USER')")
             .and()
         .formLogin()
+            .successHandler(new MyAppAuthenticationSuccessHandler())
             .and()
         .logout()
             .invalidateHttpSession(true)

@@ -15,31 +15,37 @@
  
     <definition name="users" extends=".mainTemplate">
         <put-attribute name="title" value="Mentoring App - Users Administration" type="string" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/adminMenu.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/users.jsp" />
     </definition>
     
     <definition name="userDetails" extends=".mainTemplate">
         <put-attribute name="title" value="Mentoring App - User Profile" type="string" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/adminMenu.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/editProfile.jsp" />
     </definition>
     
     <definition name="currencies" extends=".mainTemplate">
         <put-attribute name="title" value="Mentoring App - Currency Administration" type="string" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/adminMenu.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/currencies.jsp" />
     </definition>
     
     <definition name="currencyDetails" extends=".mainTemplate">
         <put-attribute name="title" value="Mentoring App - Currency Operations Details" type="string" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/adminMenu.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/currencyDetails.jsp" />
     </definition>
     
     <definition name="currencyOperations" extends=".mainTemplate">
         <put-attribute name="title" value="Mentoring App - Currency Operations Administration" type="string" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/adminMenu.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/currencyOperations.jsp" />
     </definition>
     
     <definition name="currencyOperationDetails" extends=".mainTemplate">
         <put-attribute name="title" value="Mentoring App - Currency Operations Details" type="string" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/adminMenu.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/currencyOperationsDetails.jsp" />
     </definition>
     

@@ -66,7 +66,6 @@ public class ExchangeController {
             exchangeOperationService.exchange(exchangeOperation.getFromAccount(),
                     exchangeOperation.getToAccount(), currencyOperationDto,
                     exchangeOperation.getAmount(), user);
-            return "redirect:/exchange/"+ currencyOperationId;
         }
         return "redirect:/exchange";
     }

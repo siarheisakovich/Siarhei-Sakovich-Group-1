@@ -39,7 +39,7 @@
     <tr>
         <td>
             <form:label path="amount">
-                <spring:message text="From Coefficent"/>
+                <spring:message text="Amount"/>
             </form:label>
         </td>
         <td>

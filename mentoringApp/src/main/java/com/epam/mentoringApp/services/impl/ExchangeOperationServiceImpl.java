@@ -106,7 +106,7 @@ public class ExchangeOperationServiceImpl implements ExchangeOperationService {
         BigDecimal second = toAccount.getAmount();
         BigDecimal fromCoef = currencyOperation.getFromCoefficent();
         BigDecimal toCoef = currencyOperation.getToCoefficent();
-        toAccount.setAmount(second.divide(fromCoef).multiply(toCoef));
+        toAccount.setAmount(second.add(amount.divide(fromCoef).multiply(toCoef)));
         accountDao.update(fromAccount);
         accountDao.update(toAccount);
         ExchangeOperation exchangeOperation = new ExchangeOperation();
@@ -128,7 +128,7 @@ public class ExchangeOperationServiceImpl implements ExchangeOperationService {
     }
     
     private boolean isEnoughtAmount(Account fromAccount, BigDecimal amount){
-        return fromAccount.getAmount().compareTo(amount) > 0;
+        return fromAccount.getAmount().compareTo(amount) >= 0;
     }
     
     private boolean isValidAccountCurrencies(Account fromAccount, Account toAccount, CurrencyOperation currencyOperation){
