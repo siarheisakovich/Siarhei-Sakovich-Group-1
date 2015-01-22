@@ -8,5 +8,5 @@
     <a href="<c:url value='/exchange'/>">User Exchange</a>
     <a href="<c:url value='/admin/currencyOperations'/>">Admin Currency Operations</a>
     <a href="<c:url value='/admin/currencies'/>">Admin Currencies</a>
-    <a href="<c:url value='/admin/currencies'/>">Admin Users</a>
+    <a href="<c:url value='/admin/users'/>">Admin Users</a>
 </nav>

@@ -53,6 +53,15 @@
         <put-attribute name="content" value="/WEB-INF/jsp/accounts.jsp" />
     </definition>
     
+    <definition name="currencyOperationsForm" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - Choose Currency Operation" type="string" />
+        <put-attribute name="content" value="/WEB-INF/jsp/currencyOperationsForm.jsp" />
+    </definition>
+    
+    <definition name="exchangeForm" extends=".mainTemplate">
+        <put-attribute name="title" value="Mentoring App - Exchange Form" type="string" />
+        <put-attribute name="content" value="/WEB-INF/jsp/exchangeForm.jsp" />
+    </definition>
     
     
 </tiles-definitions>

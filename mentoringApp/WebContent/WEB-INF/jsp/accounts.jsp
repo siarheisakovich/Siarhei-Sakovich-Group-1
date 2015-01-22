@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <h1>
-    Add Currency Operation
+    Add Account
 </h1>
 <c:url var="add_action" value='/accounts'/>
 <form:form commandName="account" action="${add_action}" method="POST">
