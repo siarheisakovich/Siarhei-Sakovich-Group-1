@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan({"com.epam.mentoringApp.services", "com.epam.mentoringApp.dao"})
 @EnableTransactionManagement
-@Import(SecurityConfig.class)
+@Import({SecurityConfig.class, JMSConfig.class})
 public class AppConfig {
 
     
