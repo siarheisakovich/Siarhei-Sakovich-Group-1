@@ -50,15 +50,15 @@ public class CinemaTicketsController {
         return "addedd";
     }
     
-    @RequestMapping(value="/cart/book", method=RequestMethod.POST)
-    public String order(){
-        
-    }
-    
-    @RequestMapping(value="/cart/pay", method=RequestMethod.POST)
-    public String pay(){
-        
-    }
+//    @RequestMapping(value="/cart/book", method=RequestMethod.POST)
+//    public String order(){
+//        
+//    }
+//    
+//    @RequestMapping(value="/cart/pay", method=RequestMethod.POST)
+//    public String pay(){
+//        
+//    }
     
 //    @RequestMapping(value="/admin/currencies/{id}", method = RequestMethod.GET)
 //    public String detailView(Model model, @PathVariable Long id) {
