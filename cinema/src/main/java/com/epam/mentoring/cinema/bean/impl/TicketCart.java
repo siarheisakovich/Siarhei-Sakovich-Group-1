@@ -37,8 +37,6 @@ public class TicketCart implements ICart<ITicket>{
     public List<ITicket> getItems() {
         return tickets;
     }
-    
-    
 
     @Override
     public boolean contains(ITicket item) {
@@ -50,7 +48,6 @@ public class TicketCart implements ICart<ITicket>{
         LOGGER.debug("initialize");
         //Start Transaction
         tickets = new ArrayList<ITicket>();
-        
     }
     
     @PreDestroy

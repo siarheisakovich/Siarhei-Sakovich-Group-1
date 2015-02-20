@@ -20,8 +20,9 @@
     <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
     <bean id="entityManagerFactory"
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="packagesToScan" value="com.epam.mentoring.cinema.entity" />
         <property name="persistenceUnitName" value="primary" />
-        <property name="persistenceXmlLocation" value="classpath:persistence.xml" />
+        <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
     </bean>
 </beans>

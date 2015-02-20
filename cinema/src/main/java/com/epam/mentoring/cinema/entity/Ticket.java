@@ -3,6 +3,8 @@ package com.epam.mentoring.cinema.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-@Table(name = "Registrant", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "tickets", uniqueConstraints = @UniqueConstraint(columnNames = {"row", "seat"}))
 public class Ticket implements Serializable{
 
     private static final long serialVersionUID = -6969439625103679528L;
@@ -26,7 +28,10 @@ public class Ticket implements Serializable{
 
     @NotNull
     private Integer seat;
-
+    
+    @Enumerated(EnumType.STRING)
+    private Status status;
+    
     public Long getId() {
         return id;
     }
@@ -49,5 +54,20 @@ public class Ticket implements Serializable{
 
     public void setSeat(Integer seat) {
         this.seat = seat;
+    }
+    
+    public Status getStatus() {
+        return status;
+    }
+    
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+    
+    public static enum Status {
+        FREE,
+        INCART,
+        BOOCKED,
+        PAID
     }
 }

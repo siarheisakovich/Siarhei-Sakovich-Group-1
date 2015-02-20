@@ -1,12 +1,16 @@
 package com.epam.mentoring.cinema.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
@@ -49,5 +53,32 @@ public class CinemaTicketDao implements ICinemaTicketDao{
         return this.entityManager.merge(ticket);
     }
     
+    @Override
+    public List<Ticket> search(Map<String, Object> criteriaMap) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Ticket> criteriaQuery = criteriaBuilder.createQuery(Ticket.class);
+        Root<Ticket> p = criteriaQuery.from(Ticket.class);
+        Predicate[] predicate = new Predicate[criteriaMap.size()];
+        int index = 0;
+        for (String property : criteriaMap.keySet()) {
+            Object value = criteriaMap.get(property);
+            predicate[index] = criteriaBuilder.equal(p.get(property), value);
+            index++;
+        }
+        criteriaQuery.where(predicate);
+        TypedQuery<Ticket> query = entityManager.createQuery(criteriaQuery);
+        return query.getResultList();
+    }
     
+    @Override
+    public Ticket findByPlace(Integer row, Integer seat) {
+        Map<String, Object> criteriaMap = new HashMap<String, Object>();
+        criteriaMap.put("row", row);
+        criteriaMap.put("seat", seat);
+        List<Ticket> tickets = search(criteriaMap);
+        if(tickets != null && tickets.size() > 0){
+            return tickets.get(0);
+        }
+        return null;
+    }
 }
